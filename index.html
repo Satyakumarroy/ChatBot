@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDP Support Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>CDP Support Chatbot</h1>
+    <form method="POST">
+        <input type="text" name="query" placeholder="Ask a 'how-to' question" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if query %}
+        <h2>Results for: "{{ query }}"</h2>
+        {% for platform, content in results.items() %}
+            <h3>{{ platform }}</h3>
+            <p>{{ content }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
